@@ -51,10 +51,10 @@ public class Database {
 	 }
 	 
 	 
-	 public boolean insertOne(String query)
+	 public boolean insertOne(String query) throws Exception
 	 {
 			boolean res = false;
-				try{  
+		
 					
 					stmt = myConnection.createStatement();
 					
@@ -63,11 +63,7 @@ public class Database {
 					{
 						res = true;
 					} 
-					}catch(Exception e){ 
-						System.out.println("test");
-						System.out.println(e.getMessage());
-						
-					} 	
+			
 				
 			return res;
 	 }

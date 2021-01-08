@@ -1,16 +1,17 @@
 package application.controllers;
 
-import java.io.IOException;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+
 import javafx.stage.Stage;
 
 public class HomeController implements Initializable {
@@ -27,32 +28,42 @@ public class HomeController implements Initializable {
 
     //my bad - the freaking mouse event
     @FXML
-    private void Rederiction(ActionEvent mouseEvent) throws IOException {
+    private void Rederiction(javafx.event.ActionEvent mouseEvent){
     	
-        //if (mouseEvent.getSource() == btnManage) {
-            loadStage(btnManage, "../fxml/ManageEmploye.fxml");
-        //} else if (mouseEvent.getSource() == btnshow) {
-            loadStage(btnshow, "../fxml/ListEmployers.fxml");
-        //} else if (mouseEvent.getSource() == btnAVG) {
-            loadStage(btnAVG, "../fxml/AvgSalary.fxml");
-        //}
+    	try {	
+		        if (mouseEvent.getSource() == btnManage) {
+		            loadStage("../fxml/ManageEmploye.fxml");
+		        } else if (mouseEvent.getSource() == btnshow) {
+		            loadStage("../fxml/ListEmployers.fxml");
+		        } else if (mouseEvent.getSource() == btnAVG) {
+		            loadStage("../fxml/AvgSalary.fxml");
+		        }
+        
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        System.out.println(e.getMessage());
+	    }
     }
     
     
-    private void loadStage(Button btn, String fxml) throws IOException{
+    private void loadStage(String fxml)  throws Exception {
         
+    
+            Parent root = FXMLLoader.load(getClass().getResource(fxml));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            
+
+           
+            
+       
+}
+
+	@Override	
+	public void initialize(URL location, ResourceBundle resources) {
 	
-      Parent root = FXMLLoader.load(getClass().getResource(fxml));
-		Stage window = (Stage) btn.getScene().getWindow();
-		Scene scene = new Scene(root);
-		window.setScene(scene);
-      
-
-}
-
-@Override
-public void initialize(URL location, ResourceBundle resources) {
-
-}
+	}
 
 }

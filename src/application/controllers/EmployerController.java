@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
-
 import application.database.Database;
 import application.models.*;
 import javafx.collections.FXCollections;
@@ -78,7 +77,7 @@ public class EmployerController implements Initializable {
 	
 
 	@FXML
-	public void FillComboBx()throws IOException{
+	public void FillComboBx()throws Exception{
 		
 		fonctionsList.setItems(typeList);
 		fonctionsList.getSelectionModel().selectFirst();
@@ -89,7 +88,7 @@ public class EmployerController implements Initializable {
 	}
 	
 	@FXML
-	public void selectFunction()throws IOException{
+	public void selectFunction()throws Exception{
 		
 		if(fonctionsList.getSelectionModel().getSelectedItem().equals("vendeur"))
 		{
@@ -143,31 +142,31 @@ public class EmployerController implements Initializable {
 	
 	
 	@FXML
-	public void insertEmployer(ActionEvent mouseEvent)throws IOException,SQLException{
+	public void insertEmployer(ActionEvent mouseEvent){
+		
+		try {
 		
 		if(mouseEvent.getSource() == btnAjout) {
 			
 			if(fonctionsList.getSelectionModel().getSelectedItem().equals("vendeur"))
 			{
-				employer = new Vendeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(chiffre.getText()));
+				employer = new Vendeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Double.parseDouble(chiffre.getText()));
 				
 				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
 
 				if(res == true) {
 					check.setText("Ajout Effectué avec Succes");
-					System.out.println("hello");
 				}	
 				else {
 					check.setText("Error!!!Ajout Failed");
-					System.out.println("hello1");
 				}
 					
 				//salair.setText(employer.calculeSalaire());  
 				
 			}else if(fonctionsList.getSelectionModel().getSelectedItem().equals("representeur"))
 			{
-				employer = new Representeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(chiffre.getText()));
+				employer = new Representeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Double.parseDouble(chiffre.getText()));
 				
 				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
@@ -179,15 +178,35 @@ public class EmployerController implements Initializable {
 				
 			}else if(fonctionsList.getSelectionModel().getSelectedItem().equals("producteur"))
 			{
+				
+				employer = new Producteur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(nbrunit.getText()));
+				
+				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
+				res = database.insertOne(query);
+				if(res == true)
+					check.setText("Ajout Effectué avec Succes");
+				else
+					check.setText("Error!!!Ajout Failed");
 					
 			}else if(fonctionsList.getSelectionModel().getSelectedItem().equals("Manutentionaire"))
 			{
+				employer = new Manutentionnaire(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(nbrheurs.getText()));
 				
+				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
+				res = database.insertOne(query);
+				if(res == true)
+					check.setText("Ajout Effectué avec Succes");
+				else
+					check.setText("Error!!!Ajout Failed");
 			}
 		}
 		
 
-		
+		}catch(Exception e){ 
+			
+			System.out.println(e.getMessage());
+			
+	} 
 		
 		
 	
@@ -229,7 +248,7 @@ public class EmployerController implements Initializable {
     	try {
     		FillComboBx();
     		
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
