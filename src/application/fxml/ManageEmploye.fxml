@@ -7,36 +7,36 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.EmployerController">
    <children>
-      <AnchorPane layoutX="-110.0" layoutY="-235.0" prefHeight="865.0" prefWidth="1028.0">
+      <AnchorPane layoutX="-110.0" layoutY="-235.0" prefHeight="865.0" prefWidth="1028.0" style="-fx-background-color: #99ccff;">
          <children>
-            <Label layoutX="219.0" layoutY="358.0" text="Nom">
+            <Label layoutX="215.0" layoutY="369.0" text="Nom">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="215.0" layoutY="426.0" text="Prenom">
+            <Label layoutX="205.0" layoutY="422.0" text="Prenom">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="219.0" layoutY="685.0" text="Salaire">
+            <Label layoutX="203.0" layoutY="770.0" text="Salaire">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="215.0" layoutY="614.0" text="Fonction">
+            <Label layoutX="203.0" layoutY="566.0" text="Fonction">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="215.0" layoutY="541.0" text="Date">
+            <Label layoutX="216.0" layoutY="513.0" text="Date">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="215.0" layoutY="474.0" text="Age">
+            <Label layoutX="218.0" layoutY="469.0" text="Age">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
@@ -46,16 +46,42 @@
                   <Font name="System Bold Italic" size="26.0" />
                </font>
             </Label>
-            <Button id="btn1" layoutX="788.0" layoutY="391.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Ajouter" textFill="WHITE" />
-            <Button id="btn1" layoutX="788.0" layoutY="673.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Vider" textFill="WHITE" />
-            <Button id="btn1" layoutX="788.0" layoutY="491.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Modifier" textFill="WHITE" />
-            <Button id="btn1" layoutX="788.0" layoutY="576.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="94.0" text="Supprimer" textFill="WHITE" />
-            <TextField layoutX="381.0" layoutY="354.0" />
-            <TextField layoutX="380.0" layoutY="417.0" />
-            <TextField layoutX="377.0" layoutY="479.0" />
-            <TextField layoutX="377.0" layoutY="546.0" />
-            <TextField layoutX="374.0" layoutY="681.0" />
-            <ComboBox layoutX="377.0" layoutY="619.0" prefWidth="150.0" />
+            <Button id="btn1" fx:id="btnAjout" layoutX="788.0" layoutY="391.0" mnemonicParsing="false" onAction="#insertEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Ajouter" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnClear" layoutX="788.0" layoutY="673.0" mnemonicParsing="false" onAction="#clearEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Vider" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnUpdate" layoutX="788.0" layoutY="491.0" mnemonicParsing="false" onAction="#updateEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Modifier" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnDelete" layoutX="788.0" layoutY="576.0" mnemonicParsing="false" onAction="#deleteEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Supprimer" textFill="WHITE" />
+            <TextField fx:id="nameText" layoutX="380.0" layoutY="367.0" />
+            <TextField fx:id="prenomText" layoutX="381.0" layoutY="420.0" />
+            <TextField fx:id="ageText" layoutX="381.0" layoutY="467.0" />
+            <TextField fx:id="dateText" layoutX="380.0" layoutY="511.0" />
+            <TextField fx:id="salair" disable="true" layoutX="380.0" layoutY="768.0">
+               <font>
+                  <Font name="System Bold Italic" size="13.0" />
+               </font></TextField>
+            <ComboBox fx:id="fonctionsList" layoutX="381.0" layoutY="564.0" onAction="#selectFunction" prefWidth="150.0" />
+            <TextField fx:id="nbrunit" layoutX="380.0" layoutY="612.0" visible="false" />
+            <TextField fx:id="chiffre" layoutX="380.0" layoutY="661.0" visible="false" />
+            <TextField fx:id="nbrheurs" layoutX="380.0" layoutY="715.0" visible="false" />
+            <Label fx:id="labelunit" layoutX="179.0" layoutY="614.0" prefHeight="21.0" prefWidth="110.0" text="Nombre Unites" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelChiffre" layoutX="171.0" layoutY="663.0" prefHeight="21.0" prefWidth="124.0" text="chiffre D' affaire" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="LabelNberHeur" layoutX="171.0" layoutY="717.0" text="Nombre D'heures" visible="false">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="check" layoutX="688.0" layoutY="766.0" prefHeight="38.0" prefWidth="291.0" textFill="#127c20">
+               <font>
+                  <Font name="Bungee Inline" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>

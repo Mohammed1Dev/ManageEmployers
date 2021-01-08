@@ -64,7 +64,7 @@ public class Database {
 						res = true;
 					} 
 					}catch(Exception e){ 
-						
+						System.out.println("test");
 						System.out.println(e.getMessage());
 						
 					} 	
