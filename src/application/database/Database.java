@@ -22,7 +22,13 @@ public class Database {
 	
 	
 	
-	 public void connexion()
+	
+	
+	
+	public Database() {}
+
+
+	public void connexion()
 	 {
 
 		try {
@@ -59,6 +65,7 @@ public class Database {
 					stmt = myConnection.createStatement();
 					
 					int statut = stmt.executeUpdate(query);
+					
 					if(statut == 1)
 					{
 						res = true;

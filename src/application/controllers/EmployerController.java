@@ -22,10 +22,10 @@ public class EmployerController implements Initializable {
 	
 	
 	Employe employer;
-	String query;
+	String query = "";
 	
 	Database database = new Database();
-	boolean res = false;
+	boolean res;
 	
 	//Employer Input
 	@FXML
@@ -148,11 +148,16 @@ public class EmployerController implements Initializable {
 		
 		if(mouseEvent.getSource() == btnAjout) {
 			
+			database.connexion();
+			
 			if(fonctionsList.getSelectionModel().getSelectedItem().equals("vendeur"))
 			{
-				employer = new Vendeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Double.parseDouble(chiffre.getText()));
 				
-				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
+			
+				employer = new Vendeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Double.parseDouble(chiffre.getText()));
+				String salary = ""+employer.calculeSalaire();
+				salair.setText(salary);
+				query = "INSERT INTO employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
 
 				if(res == true) {
@@ -162,14 +167,18 @@ public class EmployerController implements Initializable {
 					check.setText("Error!!!Ajout Failed");
 				}
 					
+				
 				//salair.setText(employer.calculeSalaire());  
 				
-			}else if(fonctionsList.getSelectionModel().getSelectedItem().equals("representeur"))
+			}else 
+			if(fonctionsList.getSelectionModel().getSelectedItem().equals("representeur"))
 			{
 				employer = new Representeur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Double.parseDouble(chiffre.getText()));
-				
+				String salary = ""+employer.calculeSalaire();
+				salair.setText(salary);
 				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
+				
 				if(res == true)
 					check.setText("Ajout Effectué avec Succes");
 				else
@@ -180,7 +189,8 @@ public class EmployerController implements Initializable {
 			{
 				
 				employer = new Producteur(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(nbrunit.getText()));
-				
+				String salary = ""+employer.calculeSalaire();
+				salair.setText(salary);
 				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
 				if(res == true)
@@ -191,7 +201,8 @@ public class EmployerController implements Initializable {
 			}else if(fonctionsList.getSelectionModel().getSelectedItem().equals("Manutentionaire"))
 			{
 				employer = new Manutentionnaire(nameText.getText(), prenomText.getText(), Integer.parseInt(ageText.getText()), Integer.parseInt(dateText.getText()), Integer.parseInt(nbrheurs.getText()));
-				
+				String salary = ""+employer.calculeSalaire();
+				salair.setText(salary);
 				query = "insert into employers values(null,'"+nameText.getText()+"','"+prenomText.getText()+"',"+employer.getAge()+","+employer.getDate()+",'"+employer.function()+"',"+employer.calculeSalaire()+")";
 				res = database.insertOne(query);
 				if(res == true)
@@ -199,12 +210,16 @@ public class EmployerController implements Initializable {
 				else
 					check.setText("Error!!!Ajout Failed");
 			}
+			
+			database.deConnexion();
 		}
 		
 
 		}catch(Exception e){ 
 			
-			System.out.println(e.getMessage());
+			//System.out.println(e.getMessage());
+			e.printStackTrace();
+			//System.out.println("He Enter Here");
 			
 	} 
 		
