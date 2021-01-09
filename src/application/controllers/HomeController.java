@@ -69,6 +69,7 @@ public class HomeController implements Initializable {
 		            loadStage("../fxml/ManageEmploye.fxml");
 		        } else if (mouseEvent.getSource() == btnshow) {
 		            loadStage("../fxml/ListEmployers.fxml");
+		            
 		        } else if (mouseEvent.getSource() == btnAVG) {
 		            loadStage("../fxml/AvgSalary.fxml");
 		        }
@@ -92,6 +93,7 @@ public class HomeController implements Initializable {
   
 }
     
+    @FXML
 	public void showEmployers() throws Exception, SQLException {
 		
 		
@@ -113,13 +115,13 @@ public class HomeController implements Initializable {
 		
 			System.out.println(List);
 
-//		colID.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("id"));
-//		colNom.setCellValueFactory(new PropertyValueFactory<Employers, String>("nom"));
-//		colPrenom.setCellValueFactory(new PropertyValueFactory<Employers, String>("prenom"));
-//		colAge.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("age"));
-//		colDate.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("date"));
-//		colFonction.setCellValueFactory(new PropertyValueFactory<Employers, String>("fonction"));
-//		colSalaire.setCellValueFactory(new PropertyValueFactory<Employers, Double>("salaire"));
+		colID.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("id"));
+		colNom.setCellValueFactory(new PropertyValueFactory<Employers, String>("nom"));
+		colPrenom.setCellValueFactory(new PropertyValueFactory<Employers, String>("prenom"));
+		colAge.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("age"));
+		colDate.setCellValueFactory(new PropertyValueFactory<Employers, Integer>("date"));
+		colFonction.setCellValueFactory(new PropertyValueFactory<Employers, String>("fonction"));
+		colSalaire.setCellValueFactory(new PropertyValueFactory<Employers, Double>("salaire"));
 		
 		ListShow.setItems(List);
 		

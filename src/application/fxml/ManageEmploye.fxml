@@ -46,10 +46,10 @@
                   <Font name="System Bold Italic" size="26.0" />
                </font>
             </Label>
-            <Button id="btn1" fx:id="btnAjout" layoutX="788.0" layoutY="391.0" mnemonicParsing="false" onAction="#insertEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Ajouter" textFill="WHITE" />
-            <Button id="btn1" fx:id="btnClear" layoutX="788.0" layoutY="673.0" mnemonicParsing="false" onAction="#clearEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Vider" textFill="WHITE" />
-            <Button id="btn1" fx:id="btnUpdate" layoutX="788.0" layoutY="491.0" mnemonicParsing="false" onAction="#updateEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Modifier" textFill="WHITE" />
-            <Button id="btn1" fx:id="btnDelete" layoutX="788.0" layoutY="576.0" mnemonicParsing="false" onAction="#deleteEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Supprimer" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnAjout" layoutX="620.0" layoutY="467.0" mnemonicParsing="false" onAction="#insertEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Ajouter" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnClear" layoutX="823.0" layoutY="467.0" mnemonicParsing="false" onAction="#clearEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Vider" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnUpdate" layoutX="654.0" layoutY="635.0" mnemonicParsing="false" onAction="#updateEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Modifier" textFill="WHITE" />
+            <Button id="btn1" fx:id="btnDelete" layoutX="799.0" layoutY="635.0" mnemonicParsing="false" onAction="#deleteEmployer" prefHeight="25.0" prefWidth="94.0" style="-fx-background-color: #2e45a1; -fx-background-radius: 8px;" text="Supprimer" textFill="WHITE" />
             <TextField fx:id="nameText" layoutX="380.0" layoutY="367.0" />
             <TextField fx:id="prenomText" layoutX="381.0" layoutY="420.0" />
             <TextField fx:id="ageText" layoutX="381.0" layoutY="467.0" />
@@ -80,6 +80,12 @@
             <Label fx:id="check" layoutX="688.0" layoutY="766.0" prefHeight="38.0" prefWidth="291.0" textFill="#127c20">
                <font>
                   <Font name="Bungee Inline" size="20.0" />
+               </font>
+            </Label>
+            <ComboBox layoutX="730.0" layoutY="564.0" prefWidth="150.0" />
+            <Label layoutX="659.0" layoutY="566.0" prefHeight="21.0" prefWidth="67.0" text="Select ID">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
          </children>
