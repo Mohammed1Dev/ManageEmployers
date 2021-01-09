@@ -135,7 +135,7 @@ public class Database {
 				//here sonoo is database name, root is username and password      
 				}catch(Exception e){ 
 					
-					System.out.println(e);
+					System.out.println(e.getMessage());
 					
 				} 	
 			 return result;

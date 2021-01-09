@@ -69,10 +69,6 @@ public class LoginController implements Initializable {
 				}
 				
 				
-				for(int i = 0; i < listAdmin.size() ; i++)
-				{
-					System.out.println(listAdmin.get(i).getUsername() + "||" + listAdmin.get(i).getPassword());
-				}
 				
 				
 			for(int i = 0; i < listAdmin.size() ; i++)

@@ -1,8 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
 
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="735.0" style="-fx-background-color: #99ccff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controllers.EmployerController">
+   <children>
+      <TableView fx:id="ListShow" layoutX="61.0" layoutY="103.0" prefHeight="306.0" prefWidth="613.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="77.0" text="id_employer" />
+          <TableColumn fx:id="colNom" prefWidth="111.0" text="Nom" />
+            <TableColumn fx:id="colPrenom" prefWidth="95.0" text="Prenom" />
+            <TableColumn fx:id="colAge" prefWidth="59.0" text="Age" />
+            <TableColumn fx:id="colDate" prefWidth="76.0" text="Date" />
+            <TableColumn fx:id="colFonction" prefWidth="106.0" text="Fonction" />
+            <TableColumn fx:id="colSalaire" prefWidth="88.0" text="Salaire" />
+        </columns>
+      </TableView>
+      <Label layoutX="214.0" layoutY="32.0" prefHeight="46.0" prefWidth="308.0" text="Listes Des Employers" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
