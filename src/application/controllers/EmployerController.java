@@ -245,7 +245,13 @@ public class EmployerController implements Initializable {
 	@FXML
 	public void clearEmployer(ActionEvent mouseEvent)throws IOException,SQLException{
 		
-		
+		nameText.clear();
+		prenomText.clear();
+		ageText.clear();
+		dateText.clear();
+		nbrunit.clear();
+		chiffre.clear();
+		nbrheurs.clear();
 		
 	
 	}
